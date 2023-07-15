@@ -1,9 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+
 body {
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
-    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #2980b9, #8e44ad);
+    background-size: 600% 100%;
+    animation: gradient 15s ease infinite;
+    font-family: "Poppins", sans-serif;
 }
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Masonry Layout */
+
+.flow > * + * {
+    margin-top: var(--flow-space, var(--spacer));
+}
+
+.grid {
+    --gap: 1rem;
+    --columns: 4;
+    max-width: 85%;
+    margin: 2.5% auto 0;
+    columns: var(--columns);
+    gap: var(--gap);
+}
+
+.grid > * {
+    break-inside: avoid;
+    margin-bottom: var(--gap);
+}
+
+@supports (grid-template-rows: masonry) {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(var(--columns), 1fr);
+        grid-template-rows: masonry;
+        grid-auto-flow: dense;
+    }
+
+    .grid > * {
+        margin-bottom: 7.5%;
+        margin-top: 7.5%;
+    }
+}
+
+:root {
+    --ff-primary: basic-sans, sans-serif;
+    --clr-primary: #ee6352;
+    --clr-body: #333;
+    --clr-bg: #ddd;
+    --spacer: 0%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*End Masonry layout*/
 
 h1 {
     text-align: center;
@@ -12,42 +78,28 @@ h1 {
 }
 
 .banner {
-    background-color: #333;
+    background-color: #4d75ad;
     color: #fff;
     padding: 20px 0;
 }
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 40px; /* Increase the top margin */
-    margin-bottom: 40px; /* Increase the bottom margin */
-    margin-left: 80px; /* Increase the left margin */
-    margin-right: 80px; /* Increase the right margin */
-    padding: 30px; /* Adjust the padding as needed */
-    box-sizing: border-box;
-}
-
 .card {
-    background-color: #fff;
+    background-color: #fffffa;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    margin: 10px;
-    width: calc(25% - 20px);
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden;
+    margin: 0px;
     transition: transform 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
+    cursor: pointer;
 }
 
 .card-image {
     position: relative;
     overflow: hidden;
+    border-radius: 5px 5px 0 0;
 }
 
 .card-image img {
@@ -56,11 +108,13 @@ h1 {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
+    border-radius: 5px 5px 0 0;
     transition: transform 0.3s ease;
 }
 
 .card:hover .card-image img {
     transform: scale(1.1);
+    border-radius: 5px 5px 0 0;
 }
 
 .card-content {
@@ -93,52 +147,6 @@ h1 {
 
 .card p a:hover {
     color: #000;
-}
-
-header {
-    background-image: linear-gradient(to bottom, #f9f9f9, #e5e5e5);
-    padding: 60px 0;
-    text-align: center;
-}
-
-.header-content {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #4c75af;
-    padding: 20px;
-}
-
-#TITLEHEADER {
-    color: #ffffff;
-    font-family: 'Arial', sans-serif;
-    font-size: 36px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.header-description {
-    color: #555;
-    font-size: 20px;
-    margin: 20px 0;
-}
-
-.header-button {
-    display: inline-block;
-    padding: 14px 28px;
-    background-color: #62c4cc;
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.header-button:hover {
-    background-color: #50a9b2;
 }
 
 #scroll-to-top {
@@ -174,6 +182,10 @@ header {
 
 #scroll-to-top.active {
     opacity: 1;
+}
+
+#scroll-to-top.active:hover {
+    cursor: pointer;
 }
 
 #overlay {
@@ -215,6 +227,10 @@ header {
     overflow: auto;
 }
 
+.card.expanded:hover {
+    cursor: auto;
+}
+
 .card.expanded .card-content {
     position: relative;
     z-index: 1;
@@ -228,7 +244,7 @@ header {
 
 .card.expanded .card-content h2 {
     font-size: 48px; /* Doubled font size */
-    font-weight: bold;
+    font-weight: 1000;
     text-align: center;
     margin-top: auto; /* Center vertically */
     margin-bottom: 2em;
@@ -238,10 +254,13 @@ header {
     font-size: 20px;
     line-height: 1.6em;
     margin-bottom: 20px;
+    font-weight: 700;
+    color: #333333;
 }
 
 .card.expanded .card-content p strong {
-    font-weight: bold;
+    font-weight: 1000;
+    color: #252525FF;
 }
 
 .card.expanded .card-image {
@@ -274,15 +293,15 @@ header {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 28px; /* Increase the font size for a larger button */
+    font-size: 28px;
     cursor: pointer;
     color: #000;
-    background-color: transparent; /* Set the background color to transparent */
-    padding: 8px; /* Increase the padding for a larger button */
+    background-color: transparent;
+    padding: 8px;
     border-radius: 50%;
     border-color: transparent;
-    width: 36px; /* Increase the width for a larger button */
-    height: 36px; /* Increase the height for a larger button */
+    width: 36px;
+    height: 36px;
     text-align: center;
     z-index: 1;
     display: flex;
@@ -293,4 +312,45 @@ header {
 
 .hidden {
     display: none;
+}
+
+.full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 9999;
+}
+
+form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+input[type="text"] {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"] {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007ACC;
+    color: #FFFFFF;
+    cursor: pointer;
 }

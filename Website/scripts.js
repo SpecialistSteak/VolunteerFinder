@@ -3,9 +3,11 @@ window.addEventListener("scroll", function () {
     let scrollToTop = document.getElementById("scroll-to-top");
 
     if (scrollHeight > 300) {
+        scrollToTop.classList.remove("inactive");
         scrollToTop.classList.add("active");
     } else {
         scrollToTop.classList.remove("active");
+        scrollToTop.classList.add("inactive");
     }
 });
 
@@ -38,7 +40,7 @@ function closeExpandedCard() {
             document.getElementById("overlay").style.display = "none";
             document.removeEventListener("keydown", handleKeyPress);
         }
-    } , 0);
+    }, 0);
     let closeBtn = document.querySelector(".close-btn");
     if (closeBtn) {
         closeBtn.removeAttribute("onclick");
@@ -53,20 +55,11 @@ function handleKeyPress(event) {
     }
 }
 
-/*
-Template for HTML Card:
-<div class="card" onclick="expandCard(this)">
-        <div class="card-image">
-            <img src="https://wallpapercave.com/wp/L2sK0lI.jpg" alt="Volunteer Opportunity 1">
-        </div>
-        <div class="card-content">
-            <h2>Volunteer Opportunity 1</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod euismod nisi, ac malesuada velit
-                bibendum vel. Donec euismod nisl ut magna aliquam, eget bibendum sapien lacinia.</p>
-            <p><strong>URL:</strong> <a href="#">...</a></p>
-            <p><strong>Name:</strong> Volunteer Opportunity 1</p>
-            <p><strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p><strong>Location:</strong> ...</p>
-        </div>
-    </div>
- */
+var form = document.getElementById('my-form');
+form.addEventListener('submit', function (event) {
+    console.log("City: " + document.getElementById("city").value);
+    console.log("Country: " + document.getElementById("country").value);
+    console.log("Keywords: " + document.getElementById("keywords").value);
+    event.preventDefault();
+    form.style.display = 'none';
+});
