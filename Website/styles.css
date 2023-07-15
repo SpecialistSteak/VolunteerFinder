@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    color: #333;
+}
+
+.banner {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    padding: 30px 40px; /* Add increased left and right padding */
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 10px;
+    width: calc(25% - 20px);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5em;
+    margin-bottom: 10px;
+}
+
+.card p strong {
+    font-weight: bold;
+}
+
+.card p a {
+    color: #333;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.card p a:hover {
+    color: #000;
+}
+
+header {
+    background-image: linear-gradient(to bottom, #f9f9f9, #e5e5e5);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#TITLEHEADER {
+    color: #333;
+    font-size: 48px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.header-description {
+    color: #555;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.header-button {
+    display: inline-block;
+    padding: 14px 28px;
+    background-color: #62c4cc;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.header-button:hover {
+    background-color: #50a9b2;
+}
+
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#scroll-to-top a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #62c4cc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+#scroll-to-top a:hover {
+    background-color: #50a9b2;
+}
+
+#scroll-to-top i {
+    font-size: 24px;
+}
+
+#scroll-to-top.active {
+    opacity: 1;
+}
