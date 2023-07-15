@@ -39,4 +39,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 You can customize this template by replacing the title and description with your own and adding more sections as needed.
 
-I hope this helps!
+We hope this helps!
