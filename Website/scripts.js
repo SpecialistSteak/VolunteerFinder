@@ -8,3 +8,16 @@ window.addEventListener("scroll", function () {
         scrollToTop.classList.remove("active");
     }
 });
+
+function expandCard(card) {
+    card.classList.add("expanded");
+    document.getElementById("overlay").style.display = "block";
+}
+
+function closeExpandedCard() {
+    var expandedCard = document.querySelector(".card.expanded");
+    if (expandedCard) {
+        expandedCard.classList.remove("expanded");
+        document.getElementById("overlay").style.display = "none";
+    }
+}

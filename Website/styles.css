@@ -21,9 +21,11 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    padding: 30px 40px; /* Add increased left and right padding */
+    margin-top: 40px; /* Increase the top margin */
+    margin-bottom: 40px; /* Increase the bottom margin */
+    margin-left: 80px; /* Increase the left margin */
+    margin-right: 80px; /* Increase the right margin */
+    padding: 30px; /* Adjust the padding as needed */
     box-sizing: border-box;
 }
 
@@ -148,7 +150,7 @@ header {
     align-items: center;
     width: 40px;
     height: 40px;
-    background-color: #62c4cc;
+    background-color: #4c75af;
     color: #fff;
     text-decoration: none;
     border-radius: 50%;
@@ -157,7 +159,7 @@ header {
 }
 
 #scroll-to-top a:hover {
-    background-color: #50a9b2;
+    background-color: #4c75af;
 }
 
 #scroll-to-top i {
@@ -166,4 +168,99 @@ header {
 
 #scroll-to-top.active {
     opacity: 1;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4c75af;
+    padding: 20px;
+}
+
+#TITLEHEADER {
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.header-description {
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    margin: 0;
+}
+
+.header-button {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #4c75af;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.header-button:hover {
+    background-color: #eaeaea;
+}
+
+.card {
+    /* Your card styles here */
+    transition: transform 0.3s ease;
+}
+
+.card.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 80%;
+    height: 80%;
+    background-color: #fff;
+    /* Additional styles for expanded card */
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9998;
+    display: none;
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.expanded-card-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.expanded-card-content h2,
+.expanded-card-content p {
+    color: #000;
+    /* Additional styles for expanded card content */
 }

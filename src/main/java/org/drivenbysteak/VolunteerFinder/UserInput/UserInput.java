@@ -6,6 +6,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class UserInput {
+
     String city;
     String country;
     String[] keywords;
