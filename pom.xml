@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.4</version>
+        <version>3.1.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.drivenbysteak</groupId>
     <artifactId>VolunteerFinder</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>VolunteerFinder</name>
     <description>Citro Hacks Submission - A website that helps people find volunteer opportunities in their community.
     </description>
@@ -40,7 +40,7 @@
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
-            <version>1.14.3</version>
+            <version>1.15.3</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
