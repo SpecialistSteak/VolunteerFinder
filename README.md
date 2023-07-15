@@ -36,3 +36,7 @@ Contributions are what make the open source community such an amazing place to b
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
+## About
+
+Created by DrivenByStorm and SpecialistSteak as a submission for the CitroHacks 2023 hackathon.
