@@ -1,6 +1,6 @@
 window.addEventListener("scroll", function () {
-    var scrollHeight = window.pageYOffset;
-    var scrollToTop = document.getElementById("scroll-to-top");
+    let scrollHeight = window.scrollY;
+    let scrollToTop = document.getElementById("scroll-to-top");
 
     if (scrollHeight > 300) {
         scrollToTop.classList.add("active");
@@ -10,38 +10,48 @@ window.addEventListener("scroll", function () {
 });
 
 function expandCard(card) {
+    console.log("EXPAND");
     card.classList.add("expanded");
+
+    let closeBtn = document.createElement("button");
+    closeBtn.classList.add("close-btn");
+    closeBtn.innerHTML = "&times;";
+    card.appendChild(closeBtn);
+
     document.getElementById("overlay").style.display = "block";
+    closeBtn.addEventListener("click", closeExpandedCard);
     document.addEventListener("keydown", handleKeyPress);
 }
 
 function closeExpandedCard() {
-    var expandedCard = document.querySelector(".card.expanded");
-    if (expandedCard) {
-        expandedCard.classList.remove("expanded");
-        document.getElementById("overlay").style.display = "none";
-        document.removeEventListener("keydown", handleKeyPress);
+    //This is really scuffed, but it works
+    setTimeout(function () {
+        console.log("CLOSE");
+        let closeBtn = document.querySelector(".close-btn");
+        if (closeBtn) {
+            closeBtn.removeAttribute("onclick");
+            closeBtn.remove();
+        }
+        let expandedCard = document.querySelector(".card.expanded");
+        if (expandedCard) {
+            expandedCard.classList.remove("expanded");
+            document.getElementById("overlay").style.display = "none";
+            document.removeEventListener("keydown", handleKeyPress);
+        }
+    } , 0);
+    let closeBtn = document.querySelector(".close-btn");
+    if (closeBtn) {
+        closeBtn.removeAttribute("onclick");
+        closeBtn.remove();
     }
 }
 
 function handleKeyPress(event) {
     if (event.key === "Escape") {
+        console.log("ESCAPE")
         closeExpandedCard();
     }
 }
-
-// function expandCard(card) {
-//     card.classList.add("expanded");
-//     document.getElementById("overlay").style.display = "block";
-// }
-//
-// function closeExpandedCard() {
-//     var expandedCard = document.querySelector(".card.expanded");
-//     if (expandedCard) {
-//         expandedCard.classList.remove("expanded");
-//         document.getElementById("overlay").style.display = "none";
-//     }
-// }
 
 /*
 Template for HTML Card:
