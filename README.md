@@ -2,7 +2,6 @@
 
 This website is designed to help people find volunteer opportunities in their community. 
 
-\`\`\`
 ## Table of Contents
 
 - [Installation](#installation)
@@ -13,18 +12,15 @@ This website is designed to help people find volunteer opportunities in their co
 ## Installation
 
 1. Clone the repo
-   \`\`\`sh
-   git clone https://github.com/your_username_/Project-Name.git
-   \`\`\`
-2. Install NPM packages
-   \`\`\`sh
-   npm install
-   \`\`\`
+   ```
+   sh
+   git clone https://github.com/SpecialistSteak/VolunteerFinder.git
+   ```
 
 ## Usage
 
 1. Go to the website.
-2. Enter your location.
+2. Enter your location and relevant keywords.
 3. Browse through the list of volunteer opportunities available in your area.
 
 ## Contributing
@@ -39,8 +35,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## License
 
-Distributed under the MIT License. See \`LICENSE\` for more information.
-\`\`\`
+Distributed under the MIT License. See `LICENSE` for more information.
 
 You can customize this template by replacing the title and description with your own and adding more sections as needed.
 
