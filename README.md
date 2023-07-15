@@ -39,4 +39,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## About
 
-Created by DrivenByStorm and SpecialistSteak as a submission for the CitroHacks 2023 hackathon.
+Created by [DrivenByStorm](https://github.com/DrivenByStorm) and [SpecialistSteak](https://github.com/SpecialistSteak) as a submission for the CitroHacks 2023 hackathon.
