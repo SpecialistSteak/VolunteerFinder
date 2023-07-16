@@ -91,7 +91,7 @@ public class Googler {
         }
         return null;
     }
-    // this should be the fucking parser
+    // this should be the parser
     // idk if we need to filter shit after this, maybe for description :pain:
     // then we need to store the data in an array or and object or some shit
     // that should be it
