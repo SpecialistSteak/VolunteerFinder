@@ -8,6 +8,7 @@ This website is designed to help people find volunteer opportunities in their co
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
+- [About](#about)
 
 ## Installation
 
