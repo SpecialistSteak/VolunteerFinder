@@ -55,11 +55,21 @@ function handleKeyPress(event) {
     }
 }
 
-var form = document.getElementById('my-form');
-form.addEventListener('submit', function (event) {
-    console.log("City: " + document.getElementById("city").value);
-    console.log("Country: " + document.getElementById("country").value);
-    console.log("Keywords: " + document.getElementById("keywords").value);
-    event.preventDefault();
-    form.style.display = 'none';
+
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById("input-form");
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let country = document.getElementById("country").value;
+        let city = document.getElementById("city").value;
+        let keywords = document.getElementById("keywords").value.split("/");
+
+        console.log(country);
+        console.log(city);
+        console.log(keywords);
+
+        const fullScreenDiv = document.querySelector('.full-screen');
+        fullScreenDiv.remove();
+    });
 });

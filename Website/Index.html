@@ -6,31 +6,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="scripts.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <div class="full-screen">
-        <div class="center">
-            <h1>Volunteer Opportunities Hub</h1>
-            <p>To get started, enter your information below to find the best volunteer opportunities for you!</p>
-            <form method="post">
-                <div class="txt_field">
-                    <input type="text" required>
-                    <span></span>
-                    <label>Username</label>
-                </div>
-                <div class="txt_field">
-                    <input type="password" required>
-                    <span></span>
-                    <label>Password</label>
-                </div>
-                <input type="submit" value="Submit">
-                <div class="signup_link">
-                </div>
-            </form>
-        </div>
-    </div>
-
+    <meta charset="utf-8">
 </head>
+
 <body>
+<div class="full-screen">
+    <div class="center">
+        <h1>Volunteer Opportunities Hub</h1>
+        <p>To get started, enter your information below to find the best volunteer opportunities for you!</p>
+        <form method="post" id="input-form">
+            <div class="txt_field">
+                <input type="text" id="country" required>
+                <span></span>
+                <label>Country</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" id="city" required>
+                <span></span>
+                <label>City</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" id="keywords" required>
+                <span></span>
+                <label>Relevant Keywords (Separate with / between each)</label>
+            </div>
+            <input type="submit" value="Submit">
+            <div class="signup_link">
+            </div>
+        </form>
+    </div>
+    <div class="credit">
+        <p><span>&copy;</span> 2023 - Tool created by Luke M. and Chanak G.</p>
+    </div>
+</div>
 <div class="grid">
     <div class="card content flow" onclick="expandCard(this)">
         <div class="card-image">
