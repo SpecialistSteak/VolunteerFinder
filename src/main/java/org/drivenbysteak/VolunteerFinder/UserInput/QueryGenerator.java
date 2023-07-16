@@ -5,13 +5,13 @@ public class QueryGenerator {
         StringBuilder query = new StringBuilder();
         query.append("https://www.google.com/search?q=");
         for (String keyword : ui.getKeywords()) {
-            query.append(keyword);
+            query.append(keyword.replace(" ", "%20"));
             query.append("+");
         }
-        query.append("volunteer+in+");
+        query.append("volunteer,+near+");
         query.append(ui.getCity());
         query.append("+");
-        query.append(ui.getCountry());
+        query.append(ui.getArea());
         return query.toString();
     }
 
@@ -21,7 +21,7 @@ public class QueryGenerator {
     }
 
     public static void main(String[] args) {
-        UserInput ui = new UserInput("London", "England", new String[]{"dog", "cat"});
+        UserInput ui = new UserInput("London", "England", new String[]{"dog", "cat", "dog shelter"});
         System.out.println(UserInputToQuery(ui));
     }
 }

@@ -310,7 +310,6 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .hidden {
@@ -474,11 +473,6 @@ input[type="submit"]:hover {
     z-index: 999;
 }
 
-.full-screen {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.full-screen.fade-out {
-    opacity: 0;
+.full-screen FADE-OUT {
+    animation: fadeOut 1s ease-in-out forwards;
 }

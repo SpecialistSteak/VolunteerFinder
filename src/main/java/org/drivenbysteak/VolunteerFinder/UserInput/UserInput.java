@@ -8,12 +8,12 @@ import lombok.Data;
 public class UserInput {
 
     String city;
-    String country;
+    String area;
     String[] keywords;
 
     public UserInput() {
         this.city = " ";
-        this.country = " ";
+        this.area = " ";
         this.keywords = new String[]{};
     }
 }

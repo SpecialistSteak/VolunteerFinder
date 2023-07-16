@@ -61,15 +61,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
-        let country = document.getElementById("country").value;
-        let city = document.getElementById("city").value;
+        let country = document.getElementById("city").value;
+        let city = document.getElementById("area").value;
         let keywords = document.getElementById("keywords").value.split("/");
+        keywords = keywords.map(keyword => keyword.trim()).filter(keyword => keyword !== "");
 
         console.log(country);
         console.log(city);
         console.log(keywords);
 
         const fullScreenDiv = document.querySelector('.full-screen');
-        fullScreenDiv.remove();
+
+        fade(fullScreenDiv, function() {
+            fullScreenDiv.remove();  // Remove the element after fade completes
+        });
     });
 });
+
+function fade(element, callback) {
+    var op = 1;
+    var timer = setInterval(function () {
+        if (op <= 0.1){
+            clearInterval(timer);
+            element.style.display = 'none';
+            callback();
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+    }, 10);
+}
