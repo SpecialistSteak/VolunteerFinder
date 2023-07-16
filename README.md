@@ -8,7 +8,7 @@ This website and API is designed to help people locate and filter through volunt
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [How It Works](#how_it_works)
+- [How It Works](#how-it-works)
 - [Contributing](#contributing)
 - [License](#license)
 - [About](#about)
