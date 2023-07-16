@@ -8,6 +8,7 @@ This website and API is designed to help people locate and filter through volunt
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [How It Works](#how_it_works)
 - [Contributing](#contributing)
 - [License](#license)
 - [About](#about)
@@ -25,6 +26,16 @@ This website and API is designed to help people locate and filter through volunt
 1. Go to the website.
 2. Enter your location and relevant keywords.
 3. Browse through the list of volunteer opportunities available in your area.
+
+## How It Works
+
+1. User input collected
+2. Input is processed to form the search query
+3. Relevant information is scraped from the web
+4. Each volunteer opportunity object is sent to our home server
+5. The objects are processed with JavaScript to form cards
+6. Information displayed neatly with images and hyperlinks to learn more about the volunteer opportunities
+
 
 ## License
 
