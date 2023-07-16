@@ -29,7 +29,7 @@ This website and API is designed to help people locate and filter through volunt
 
 ## How It Works
 
-1. User input collected
+1. User input is collected
 2. Input is processed to form the search query
 3. Relevant information is scraped from the web
 4. Each volunteer opportunity object is sent to our home server
