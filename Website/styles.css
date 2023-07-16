@@ -458,6 +458,7 @@ input[type="submit"]:hover {
     -moz-filter: blur(5px);
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
+    z-index: 0;
 }
 
 .credit {
