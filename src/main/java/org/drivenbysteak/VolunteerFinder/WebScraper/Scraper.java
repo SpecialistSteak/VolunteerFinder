@@ -11,17 +11,18 @@ import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static org.drivenbysteak.VolunteerFinder.UserInput.QueryGenerator.testQueryGenerator;
+
 @UtilityClass
-public class Googler {
+public class Scraper {
     public static void main(String[] args) {
-        String query = "https://www.google.com/search?q=dog+shelter+volunteer,+near+London+England";
-        Volunteer[] volunteers = sendGoogleRequest(query);
+        var query = testQueryGenerator("Niagara Falls", "Toronto", new String[]{"dogs", "animal drive", "donation"});
+        Volunteer[] volunteers = sendRequest(query);
         for (Volunteer e : volunteers) {
             System.out.println(e == null ? "null" : e.toString());
         }
     }
 
-    //    DO NOT TOUCH!!! (No idea why this works)
     public static String GRAB_TELLY(String weburl) {
         String text = "";
         try {
@@ -37,57 +38,57 @@ public class Googler {
         }
         return text;
     }
+//    RIP these following methods:
+//    public static String searchWebsiteForLocation(String websiteUrl) {
+//        String location = "";
+//        try {
+//            Document document = Jsoup.connect(websiteUrl).get();
+//            Elements locationElements = document.select(".address, .location");
+//
+//            for (Element element : locationElements) {
+//                location = locationExtractor(element);
+//                break;
+//            }
+//
+//        } catch (Exception e) {
+//            System.out.println("Error. " + e.getMessage());
+//        }
+//        return location;
+//    }
+//
+//    public static String GRAB_LOCAY(String weburl) {
+//        String text = "";
+//        try {
+//            Document document = Jsoup.connect(weburl).get();
+//            String html = document.html();
+//            Pattern pattern = Pattern.compile("\\b\\d+\\s+\\w+\\s+(?:Road|Street|Avenue|Lane|Drive|Court|Place|Boulevard)\\b");
+//            Matcher matcher = pattern.matcher(html);
+//            if (matcher.find()) {
+//                text = matcher.group();
+//            }
+//        } catch (Exception e) {
+//            System.out.println("Error: " + e.getMessage());
+//        }
+//        return text;
+//    }
+//
+//    public static String locationExtractor(Element element) {
+//        Element locationElement = element.selectFirst("ul.address, ul.location");
+//
+//        String location = locationElement != null ? locationElement.text().trim() : "";
+//
+//        String pattern = "\\b\\d+\\s+\\w+\\s+(?:Road|Street|Avenue|Lane|Drive|Court|Place|Boulevard)\\b";
+//        Pattern regexPattern = Pattern.compile(pattern);
+//        Matcher matcher = regexPattern.matcher(location);
+//
+//        String address = "";
+//        if (matcher.find()) {
+//            address = matcher.group().trim();
+//        }
+//        return address;
+//    }
 
-    public static String searchWebsiteForLocation(String websiteUrl) {
-        String location = "";
-        try {
-            Document document = Jsoup.connect(websiteUrl).get();
-            Elements locationElements = document.select(".address, .location");
-
-            for (Element element : locationElements) {
-                location = locationExtractor(element);
-                break;
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error. " + e.getMessage());
-        }
-        return location;
-    }
-
-    public static String GRAB_LOCAY(String weburl) {
-        String text = "";
-        try {
-            Document document = Jsoup.connect(weburl).get();
-            String html = document.html();
-            Pattern pattern = Pattern.compile("\\b\\d+\\s+\\w+\\s+(?:Road|Street|Avenue|Lane|Drive|Court|Place|Boulevard)\\b");
-            Matcher matcher = pattern.matcher(html);
-            if (matcher.find()) {
-                text = matcher.group();
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-        return text;
-    }
-
-    public static String locationExtractor(Element element) {
-        Element locationElement = element.selectFirst("ul.address, ul.location");
-
-        String location = locationElement != null ? locationElement.text().trim() : "";
-
-        String pattern = "\\b\\d+\\s+\\w+\\s+(?:Road|Street|Avenue|Lane|Drive|Court|Place|Boulevard)\\b";
-        Pattern regexPattern = Pattern.compile(pattern);
-        Matcher matcher = regexPattern.matcher(location);
-
-        String address = "";
-        if (matcher.find()) {
-            address = matcher.group().trim();
-        }
-        return address;
-    }
-
-    public static Volunteer[] sendGoogleRequest(String query) {
+    public static Volunteer[] sendRequest(String query) {
         try {
             Document response = Jsoup.connect(query).get();
             Elements searchItems = response.select(".g");
@@ -109,11 +110,9 @@ public class Googler {
                 String description = doc.select("meta[name=description]").attr("content");
 
                 String image = findImage2(url);
-
                 String phone = GRAB_TELLY(url);
 
-                String location = GRAB_LOCAY(url);
-                Volunteer volunteer = new Volunteer(url, name, description, location, image, phone);
+                Volunteer volunteer = new Volunteer(url, name, description, image, phone);
 
                 volunteers[index + 1] = volunteer;
 
@@ -122,6 +121,7 @@ public class Googler {
                 index++;
             }
             System.out.println("Number of volunteers found: " + index);
+            volunteers = java.util.Arrays.stream(volunteers).filter(java.util.Objects::nonNull).toArray(Volunteer[]::new);
             return volunteers;
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());

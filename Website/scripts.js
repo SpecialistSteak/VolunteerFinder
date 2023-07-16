@@ -55,28 +55,74 @@ function handleKeyPress(event) {
     }
 }
 
+//     foreach item in this, create a card in the format
+//     <div className="card content flow" onClick="expandCard(this)">
+//         <div className="card-image">
+//             <img src="https://wallpapercave.com/wp/L2sK0lI.jpg" alt="Volunteer Opportunity 1">
+//         </div>
+//         <div className="card-content">
+//             <h2>Volunteer Opportunity 1</h2>
+//             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod euismod nisi, ac malesuada velit
+//                 bibendum vel. Donec euismod nisl ut magna aliquam, eget bibendum sapien lacinia.</p>
+//             <p><strong>URL:</strong> <a href="#">...</a></p>
+//
+//             <p><strong>Telephone Number:</strong> ...</p>
+//         </div>
+//     </div>
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById("input-form");
 
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
         e.preventDefault();
         let country = document.getElementById("city").value;
         let city = document.getElementById("area").value;
         let keywords = document.getElementById("keywords").value.split("/");
         keywords = keywords.map(keyword => keyword.trim()).filter(keyword => keyword !== "");
+        if (typeof keywords === "string") {
+            keywords = [keywords];
+        }
 
-        console.log(country);
-        console.log(city);
-        console.log(keywords);
+        let x = await getVolunteerOpportunities(country, city, keywords);
+        console.log(x);
+        let y = await getVolunteers(x);
+        console.log(y);
 
         const fullScreenDiv = document.querySelector('.full-screen');
 
-        fade(fullScreenDiv, function() {
+        fade(fullScreenDiv, function () {
             fullScreenDiv.remove();  // Remove the element after fade completes
         });
     });
 });
+
+async function getVolunteers(query) {
+    const options = {method: 'GET'};
+
+    fetch("http://localhost:8080/results?query=" + query, options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+}
+
+async function getVolunteerOpportunities(country, city, keywords) {
+    const params = new URLSearchParams({
+        city: city,
+        country: country,
+        keywords: keywords,
+    });
+    const url = `http://localhost:8080/query?${params.toString()}`;
+    let queryLink;
+
+    fetch(url, { method: "POST" })
+        .then((response) => response.json())
+        .then((response) =>{
+            console.log(response);
+            queryLink = response;
+        })
+        .catch((err) => console.error(err));
+    return queryLink;
+}
 
 function fade(element, callback) {
     var op = 1;
@@ -90,4 +136,4 @@ function fade(element, callback) {
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op -= op * 0.1;
     }, 10);
-}
+};

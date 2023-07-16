@@ -19,9 +19,4 @@ public class QueryGenerator {
         UserInput ui = new UserInput(city, country, keywords);
         return UserInputToQuery(ui);
     }
-
-    public static void main(String[] args) {
-        UserInput ui = new UserInput("London", "England", new String[]{"dog", "cat", "dog shelter"});
-        System.out.println(UserInputToQuery(ui));
-    }
 }

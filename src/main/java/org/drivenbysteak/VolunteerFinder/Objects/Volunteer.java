@@ -11,7 +11,6 @@ public class Volunteer {
     String url;
     String name;
     String description;
-    String location;
     String image;
     String phone;
 
@@ -19,7 +18,6 @@ public class Volunteer {
         this.url = "No relevant URL available.";
         this.name = "No name available.";
         this.description = "No description available.";
-        this.location = "No location available.";
         this.image = "No image available.";
         this.phone = "No phone number available.";
     }
