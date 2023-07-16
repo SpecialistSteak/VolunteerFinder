@@ -7,24 +7,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class VolunteerFinderApplication implements Runnable{
+public class VolunteerFinderApplication implements Runnable {
 
-	public static void main(String[] args) {
-		SpringApplication.run(VolunteerFinderApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(VolunteerFinderApplication.class, args);
+    }
 
-	@Override
-	public void run() {
+    @Override
+    public void run() {
 //		 TODO Auto-generated method stub
-	}
+    }
 
-	@GetMapping("/")
-	public String home() {
-		return "Hello World!";
-	}
-
-	@GetMapping("/test")
-	public String test() {
-		return "Hello World!";
-	}
+    @GetMapping("/")
+    public String home() {
+        return "Hello World!";
+    }
 }

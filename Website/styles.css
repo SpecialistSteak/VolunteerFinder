@@ -37,6 +37,7 @@ body {
     /*margin: 2.5% auto 0;*/
     columns: var(--columns);
     gap: var(--box-margin-between);
+    z-index: 2;
 }
 
 .grid > * {
@@ -220,8 +221,7 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 80%;
+    width: 40%;
     height: 80%;
     flex-direction: column;
     justify-content: center;
@@ -280,7 +280,8 @@ h1 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 45%;
+    opacity: 0%;
+    display: none;
 }
 
 .card.expanded-card .card-image img {
@@ -458,6 +459,7 @@ input[type="submit"]:hover {
     -moz-filter: blur(5px);
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
+    z-index: 0;
 }
 
 .credit {
@@ -475,4 +477,50 @@ input[type="submit"]:hover {
 
 .full-screen FADE-OUT {
     animation: fadeOut 1s ease-in-out forwards;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #f0f0f0;
+    height: 80px;
+}
+
+.logo {
+    float: left;
+    height: 80px;
+}
+
+.logo img {
+    height: 100%;
+}
+
+.nav {
+    float: right;
+    z-index: 1;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    display: inline-block;
+    line-height: 80px;
+    justify-content: left;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    padding: 0 20px;
+}
+
+.nav-link:hover {
+    color: #ff6600;
 }

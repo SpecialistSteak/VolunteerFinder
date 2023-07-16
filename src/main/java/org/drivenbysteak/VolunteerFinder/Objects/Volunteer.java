@@ -1,5 +1,7 @@
 package org.drivenbysteak.VolunteerFinder.Objects;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -11,6 +13,7 @@ public class Volunteer {
     String description;
     String location;
     String image;
+    String phone;
 
     public Volunteer() {
         this.url = "No relevant URL available.";
@@ -18,5 +21,13 @@ public class Volunteer {
         this.description = "No description available.";
         this.location = "No location available.";
         this.image = "No image available.";
+        this.phone = "No phone number available.";
+    }
+
+    public String toString() {
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .create();
+        return gson.toJson(this);
     }
 }
